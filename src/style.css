@@ -5,6 +5,12 @@
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
+
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
 }
 
 .header {
@@ -12,12 +18,7 @@
   height: 60px;
   width: 100%;
   justify-content: space-between;
-  background-color: #ffA;
   align-items: center;
-}
-
-body {
-  margin: 0;
 }
 
 .logo {
@@ -26,41 +27,60 @@ body {
   height: 40px;
 }
 
+.nav {
+  height: 100%;
+}
+
 .nav__list {
   display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   margin-right: 50px;
 }
 
 .nav__item {
   list-style: none;
-  display: inline-block;
+  display: flex;
   margin-left: 20px;
+  height: 100%;
+  align-items: center;
+}
+
+.nav__item:first-child {
+  margin-left: 0;
 }
 
 .nav__link {
    position: relative;
+   display: flex;
+   align-items: center;
+   height: 100%;
 }
 
 .nav__link:hover,
-.nav__item[data-qa="test"] {
+.nav__item[data-qa="hover"] {
   color: #00ACDC;
 }
 
-.nav__link::after {
+.nav__item[data-qa="hover"]::after {
+  opacity: 0;
+}
+
+.is-active::after {
   content: '';
   position: absolute;
   background-color: #00ACDC;
   width: 100%;
   height: 4px;
   border-radius: 8px;
-  top: 100%;
+  bottom: 0;
   left: 0;
-  align-items: center;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-.nav__link:hover::after,
-.nav__item[data-qa="hover"] .nav__link::after {
+.is-active:hover::after,
+.nav__item[data-qa="hover"] .is-active::after {
   opacity: 1;
 }
