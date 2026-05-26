@@ -29,11 +29,8 @@ body {
   align-items: center;
 }
 
-nav {
-  display: flex;
-}
-
 .nav {
+  display: flex;
   height: 100%;
 }
 
@@ -75,12 +72,7 @@ nav {
   color: #00acdc;
 }
 
-a {
-  text-decoration: none;
-  color: #000;
-}
-
-.nav__item[data-qa="hover"]::after {
+.nav__item[data-qa='hover']::after {
   opacity: 0;
 }
 
